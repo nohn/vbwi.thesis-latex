@@ -170,9 +170,37 @@ Beispiel\footcite[vgl.][S.~1]{Lamport} mittels \texttt{\textbackslash
 Zitierstil hin zu Zitaten mittels Fußnote, letztendlich ist es aber
 eine Absprache mit dem Betreuer der Arbeit.
 
-\section{Erster Beispielabschnitt}
+\chapter{Textgliederung und Verweise}
 
-Dies ist ein Abschnitt.
+Im folgenden sieht man die -- per default -- vorgesehenen
+Gliederungsmöglichkeiten. In der Präambel des Dokumentes wird
+gesteuert, bis zu welcher Tiefe die Ebenen nummeriert werden bzw. im
+Inhaltsverzeichnis auftauchen sollen:
+
+\begin{lstlisting}[language=TeX,caption=Steuerung der
+  Nummerierungstiefe und Inhaltsverzeichnistiefe in der
+  Prämbel,label=praeambel_tiefe]
+% Ueberschriften bis zur dritten Ebene durchnummerieren
+\setcounter{secnumdepth}{3}
+% Ueberschriften bis zur zweiten Ebene in den TOC
+\setcounter{tocdepth}{2}
+\end{lstlisting}
+
+\section{Verweise in \LaTeX}
+
+Dies ist ein Abschnitt. Von hier aus kann man \zB sehr bequem auf den
+Unterabschnitt \glqq \nameref{dritter_beispielunterabschnitt}\grqq\
+mit der Nummer \ref{dritter_beispielunterabschnitt} auf
+S.~\pageref{dritter_beispielunterabschnitt} verweisen. Das geht
+übrigens auch bequem mit Listings wie dem eben gezeigten
+Listing~\ref{praeambel_tiefe}, dem wir die Beschriftung \glqq
+\nameref{praeambel_tiefe}\grqq\ gegeben haben, und das sich auf auf
+S.~\pageref{praeambel_tiefe} befindet. Wir können das Listing ebenso
+bequem referenzieren können wie den Unterabschnitts vorhin. Ändern
+sich Seite, Beschriftung, fortlaufende Nummern usw., ändern sich die
+entsprechenden Bezeichner im Text natürlich gleich mit. Nach dem
+gleichen Schema kann alles, was mit einem Label versehen werden kann,
+refereznziert werden.
 
 \subsection{Erster Beispielunterabschnitt}
 
@@ -186,7 +214,12 @@ Dies ist ein Unterunterabschnitt.
 
 Dies ist ein Unterunterabschnitt.
 
+\paragraph{Erster Absatz} Dies ist ein Absatz.
+
+\paragraph{Zweiter Absatz} Dies ist noch ein Absatz.
+
 \subsection{Dritter Beispielunterabschnitt}
+\label{dritter_beispielunterabschnitt}
 
 Dies ist ein Unterabschnitt.
 
