@@ -66,7 +66,7 @@
 \renewcommand*{\biblnfont}{\scshape\textbf}
 \renewcommand*{\bibfnfont}{\normalfont\textbf}
 
-
+% Referenzen verlinken
 \usepackage{hyperref}
 \hypersetup{ 
     colorlinks,
@@ -80,7 +80,7 @@
 \newcommand{\grad}{\mbox{\(\mathsurround=0pt{}^\circ\)}}
 % (r)-Zeichen definieren
 \def\TReg{\textsuperscript{\textregistered}}
-% z.B. Typographisch korrekt setzen
+% z.B., d.h. usw. Typographisch korrekt setzen
 \usepackage{xspace}
 \newcommand{\zB}{\mbox{z.\,B.}\xspace}
 \newcommand{\dH}{\mbox{d.\,h.}\xspace}
@@ -160,10 +160,15 @@ Fakultät für Informatik und Ingenieurwissenschaften\\[1cm]}
 
 \chapter{Einleitung}
 
-Dieses Template dient als Vorlage für Bachelor- und Masterthesen,
-Haus-, Seminar- und Diplomarbeiten an der \ac{FH} Köln.
+Dieses \LaTeX Template dient als Vorlage für Bachelor- und
+Masterthesen, Haus-, Seminar- und Diplomarbeiten an der \ac{FH} Köln.
 
-Dies ist ein Kapitel.
+Zitate im Text so wie \cite[vgl.][S.~1]{Lamport} sind mittels
+\texttt{\textbackslash cite}, Zitate als Fußnote, zum
+Beispiel\footcite[vgl.][S.~1]{Lamport} mittels \texttt{\textbackslash
+  footcite} einfügbar. Die \ac{FH} Köln hat zwar eine Empfehlung zum
+Zitierstil hin zu Zitaten mittels Fußnote, letztendlich ist es aber
+eine Absprache mit dem Betreuer der Arbeit.
 
 \section{Erster Beispielabschnitt}
 
