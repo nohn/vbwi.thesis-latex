@@ -1,0 +1,237 @@
+\documentclass[12pt,oneside,a4paper,bibtotoc,liststotoc]{scrreprt}
+\usepackage{remreset}
+
+%% Listings
+\usepackage{listings}
+\lstset{
+  basicstyle=\footnotesize, 
+  stringstyle=\ttfamily,
+  frame=single,
+  numberbychapter=false, % Listings vom Anfang bis zum Ende
+                         % durchnummerieren
+  captionpos=b
+}
+% Fußnoten, Tabellen und Grafiken von Anfang bis Ende durchnummerieren.
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
+
+% Überschriften bis zur dritten Ebene durchnummerieren
+\setcounter{secnumdepth}{3}
+% Überschriften bis zur zweiten Ebene in den TOC
+\setcounter{tocdepth}{2}
+
+%% Typographie-Schnickschnack
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{ellipsis} 
+
+% Schönere Zeilenumbrüche
+\usepackage{microtype}
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\vfuzz \hfuzz
+\raggedbottom
+% Schusterjungen und Hurenkinder unterdrücken
+\clubpenalty = 10000 
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000 
+
+\usepackage[utf8]{inputenc}
+% Mathematischen Formelsatz erlauben
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+
+%% Wenn ein Index verwendet werden soll, folgendes auskommentieren
+% \usepackage{makeidx}
+% \makeindex
+
+\usepackage{graphicx}
+
+%% Literaturverzeichnis
+\usepackage{jurabib}
+\jurabibsetup{
+	authorformat=abbrv,
+        titleformat={short,commasep},
+	commabeforerest,
+	see,
+        square,
+}
+% Typographischer Schnickschnack für Bibliographie
+\renewcommand*{\jbauthorfont}{\textsc}
+\renewcommand*{\biblnfont}{\scshape\textbf}
+\renewcommand*{\bibfnfont}{\normalfont\textbf}
+
+
+\usepackage{hyperref}
+\hypersetup{ 
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black 
+}
+
+% Grad-Zeichen definieren
+\newcommand{\grad}{\mbox{\(\mathsurround=0pt{}^\circ\)}}
+% (r)-Zeichen definieren
+\def\TReg{\textsuperscript{\textregistered}}
+% z.B. Typographisch korrekt setzen
+\usepackage{xspace}
+\newcommand{\zB}{\mbox{z.\,B.}\xspace}
+\newcommand{\dH}{\mbox{d.\,h.}\xspace}
+\newcommand{\ua}{\mbox{u.\,a.}\xspace}
+
+%% Schönere Tabellen
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+%% Ränder setzen
+\usepackage[left=5cm,right=3cm,top=1.5cm,bottom=2cm,includeheadfoot]{geometry}
+
+%% Abkürzungsverzeichnis
+\usepackage[printonlyused]{acronym}
+
+%% Gedrehte Tabellen
+\usepackage{rotating}
+
+%% Zeilenabstand 1.5. Nur setzen, wenn erforderlich, sieht ziemlich
+%% hässlich aus.
+% \usepackage{setspace} 
+%% 150%
+% \onehalfspacing % Zeilenabstand
+%% 125%
+%\linespread{1.25}
+%% 110%
+%\linespread{1.1}
+%% 105%
+%\linespread{1.05}
+%% 102,5%
+%\linespread{1.025}
+
+%% Trennung tweaken: Manche Wörter will man ggf. anders trennen als
+%% der Algorithmus das vorsieht oder ggf. auch garnicht
+\hyphenation{Java-Script}
+\hyphenation{Cookies}
+
+\begin{document}
+
+\begin{titlepage}
+
+\includegraphics[width=8cm]{img/fhk.jpg}
+
+\begin{center}
+\textbf{\LARGE Fachhochschule Köln\\
+Cologne University of Applied Sciences\\[0.5cm]
+Campus Gummersbach\\[0.5cm]
+Fakultät für Informatik und Ingenieurwissenschaften\\[1cm]}
+ 
+\Large Verbundstudiengang Wirtschaftsinformatik\\[1cm]
+
+\Large Template \\[1cm]
+  
+% Title
+{ \huge \bfseries \LaTeX-Template für Thesen an der FH Köln}\\
+
+\vfill
+
+\begin{table}[h]
+\centering
+\begin{tabular}{p{4cm}p{5cm}}
+  Prüfer:         & Prof. Dr. Max Mustermann \\
+  Zweitprüfer:    & Prof. Dr. Monika Mustermann \\
+                  &  \\
+  vorgelegt am:   & \today \\
+  von:            & Stephan Student \\
+  aus:	  	  & Gummersbach \\
+  Telefon-Nr.:	  & +49-123-456789 \\
+  Matrikel-Nr.:   & 123456789 \\
+  E-Mail-Adresse: & student@fh-koeln.de
+\end{tabular}
+\end{table}
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\chapter{Einleitung}
+
+Dieses Template dient als Vorlage für Bachelor- und Masterthesen,
+Haus-, Seminar- und Diplomarbeiten an der \ac{FH} Köln.
+
+Dies ist ein Kapitel.
+
+\section{Erster Beispielabschnitt}
+
+Dies ist ein Abschnitt.
+
+\subsection{Erster Beispielunterabschnitt}
+
+Dies ist ein Unterabschnitt.
+
+\subsubsection{Erster Unterunterabschnitt}
+
+Dies ist ein Unterunterabschnitt.
+
+\subsubsection{Zweiter Unterunterabschnitt}
+
+Dies ist ein Unterunterabschnitt.
+
+\subsection{Dritter Beispielunterabschnitt}
+
+Dies ist ein Unterabschnitt.
+
+\chapter*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\begin{acronym}[Acronms]
+\input{acronyms.tex}
+\end{acronym}
+
+\bibliography{thesis}{}
+\bibliographystyle{jureco} %% jurabib, jureco, jurunsrt, jox
+
+\listoffigures
+
+\listoftables
+
+\lstlistoflistings
+
+%% \printindex
+
+\appendix
+
+\chapter{Erklärung}
+
+Ich versichere, die von mir vorgelegte Arbeit selbständig verfasst zu
+haben. Alle Stellen, die wörtlich oder sinngemäß aus veröffentlichten
+oder nicht veröffentlichten Arbeiten anderer entnommen sind, habe ich
+als entnommen kenntlich gemacht. Sämtliche Quellen und Hilfsmittel,
+die ich für die Arbeit benutzt habe, sind angegeben. Die Arbeit hat
+mit gleichem Inhalt bzw. in wesentlichen Teilen noch keiner anderen
+Prüfungsbehörde vorgelegen.
+
+\bigskip
+
+Gummersbach, den \today
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+(Unterschrift)
+
+\end{document}
+
+%% end of file

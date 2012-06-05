@@ -1,4 +1,5 @@
-fh-koeln.thesis-latex
-=====================
+FH Köln Thesis LaTeX
+====================
 
-LaTeX Style for Bachelor's and Master's Theses at the Unversity of Applied Sciences Cologne / FH Köln
+A LaTeX Template for Bachelor's and Master's Theses at the Unversity
+of Applied Sciences Cologne / FH Köln
