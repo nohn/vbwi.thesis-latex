@@ -85,6 +85,7 @@
 \newcommand{\zB}{\mbox{z.\,B.}\xspace}
 \newcommand{\dH}{\mbox{d.\,h.}\xspace}
 \newcommand{\ua}{\mbox{u.\,a.}\xspace}
+\newcommand{\so}{\mbox{s.\,o.}\xspace}
 
 %% Schönere Tabellen
 \usepackage{booktabs}
@@ -96,8 +97,9 @@
 %% Abkürzungsverzeichnis
 \usepackage[printonlyused]{acronym}
 
-%% Gedrehte Tabellen
-\usepackage{rotating}
+%% Allow really fixed positions for Tables
+\usepackage{float}
+\restylefloat{table}
 
 %% Zeilenabstand 1.5. Nur setzen, wenn erforderlich, sieht ziemlich
 %% hässlich aus.
@@ -223,6 +225,31 @@ Dies ist ein Unterunterabschnitt.
 \label{dritter_beispielunterabschnitt}
 
 Dies ist ein Unterabschnitt.
+
+\chapter{Bilder und Tabellen}
+
+Bilder lassen sich in \LaTeX sehr einfach einbinden:
+
+\begin{figure}[H]
+  \begin{centering}
+    \includegraphics[width=0.8\textwidth]{img/example.png}
+    \caption{Beispielbild}
+    \label{example_image}
+  \end{centering}
+\end{figure}
+
+Bei Bilder gibt es (wie bei Tabellen) die Möglichkeit, die
+Positionierung festzulegen. Normalerweise `\glqq floaten\grqq\ Bilder
+und Tabellen in \LaTeX, \dH sie werden dort im Text untergebracht, wo
+sie am besten aussehen, nicht so wie im Quelltext positioniert
+sind. Das erfordert natürlich eine andere Art der Referenzierung von
+Bilder, als die meisten das gewohnt sind. Die Doppelpunktnotation
+(\so) funktioniert dann natürlich nicht, sondern man müsste \zB etwas
+wie \glqq Abbildung~\ref{example_image} ist ein Beispiel für die
+Einbindung von Abbildungen in \LaTeX \grqq\ schreiben.
+
+Das Floating lässt sich jedoch steuern. Eine umfangreiche Anleitung
+dazu findet sich in \cite[][]{WikibookFloats}.
 
 \chapter*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
