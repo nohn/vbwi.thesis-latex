@@ -228,6 +228,11 @@ Dies ist ein Unterabschnitt.
 
 \chapter{Abbildungen und Tabellen}
 
+Abbildungen, Tabellen und andere Objekte lassen sich leicht in \LaTeX
+einbinden und referenzieren.
+
+\section{Abbildungen}
+
 Abbildungen lassen sich in \LaTeX sehr einfach einbinden:
 
 \begin{figure}[H]
@@ -238,19 +243,48 @@ Abbildungen lassen sich in \LaTeX sehr einfach einbinden:
   \end{centering}
 \end{figure}
 
-Bei Abbildungen gibt es (wie bei Tabellen) die Möglichkeit, die
-Positionierung festzulegen. Normalerweise `\glqq floaten\grqq\
-Abbildungen und Tabellen in \LaTeX, \dH sie werden dort im Text
-untergebracht, wo sie am besten aussehen, nicht so wie im Quelltext
-positioniert sind. Das erfordert natürlich eine andere Art der
-Referenzierung von Abbildungen, als die meisten das gewohnt sind. Die
-Doppelpunktnotation (\so) funktioniert dann natürlich nicht, sondern
-man müsste \zB etwas wie \glqq Abbildung~\ref{example_image} ist ein
-Beispiel für die Einbindung von Abbildungen in \LaTeX \grqq\
-schreiben.
+\section{Tabellen}
+
+Tabellen lassen sich in \LaTeX extrem vielseitig gestalten. Ein
+Beispiel für eine einfache Tabelle findet sich in
+Tabelle~\ref{example_table}. Komplexere Beispiele finden sich \zB in
+\cite[][]{WikibookTables}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|ll}
+\toprule
+Überschrift & Überschrift & Überschrift \\
+\midrule
+Zelle & Zelle & Zelle \\
+Zelle & Zelle & Zelle \\
+Zelle & Zelle & Zelle \\
+Zelle & Zelle & Zelle \\
+\bottomrule
+\end{tabular}
+\caption{Beispieltabellen}
+\label{example_table}
+\end{table}
+
+\section{Referenzen}
+
+Bei Abbildungen gibt es (wie bei Tabellen, Listings usw.) die
+Möglichkeit, die Positionierung festzulegen. Normalerweise \glqq
+floaten\grqq\ Abbildungen und Tabellen in \LaTeX, \dH sie werden dort
+im Text untergebracht, wo sie am besten aussehen, nicht so wie im
+Quelltext positioniert sind. Das erfordert natürlich eine andere Art
+der Referenzierung von Abbildungen, als die meisten das gewohnt
+sind. Die Doppelpunktnotation (\so) funktioniert dann natürlich nicht,
+sondern man müsste \zB etwas wie \glqq Abbildung~\ref{example_image}
+ist ein Beispiel für die Einbindung von Abbildungen in \LaTeX \grqq\
+schreiben. Tabelle~\ref{example_table} ist \zB ein floatendes Objekt
+und wird so platziert, dass sich ein möglichst harmonisches
+Seitenlayout ergibt.
 
 Das Floating lässt sich jedoch steuern. Eine umfangreiche Anleitung
-dazu findet sich in \cite[][]{WikibookFloats}.
+dazu findet sich in \cite[][]{WikibookFloats}. Ein extremes Beispiel
+ist Abbildung~\ref{example_image} die fest an die Position hinter dem
+Doppelpunkt gezwungen wird.
 
 \chapter*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
