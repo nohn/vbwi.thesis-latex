@@ -27,6 +27,10 @@
 \usepackage{lmodern}
 \usepackage{ellipsis} 
 
+%% Absatzformatierung
+% \parindent=0cm
+\parskip=3mm
+
 % Schönere Zeilenumbrüche
 \usepackage{microtype}
 \tolerance 1414
@@ -39,6 +43,8 @@
 \clubpenalty = 10000 
 \widowpenalty = 10000 
 \displaywidowpenalty = 10000 
+% Schuster- und Hurenfußnoten will auch keiner...
+\interfootnotelinepenalty=10000 
 
 \usepackage[utf8]{inputenc}
 % Mathematischen Formelsatz erlauben
@@ -52,6 +58,9 @@
 
 \usepackage{graphicx}
 
+% Erlaube das Setzen von anderne Zeilenabständen (s.u.)
+\usepackage{setspace} 
+
 %% Literaturverzeichnis
 \usepackage{jurabib}
 \jurabibsetup{
@@ -59,12 +68,19 @@
         titleformat={short,commasep},
 	commabeforerest,
 	see,
+%        super, %% Konvertiert alle \cite in \footcite
         square,
+%        citefull=first,
 }
 % Typographischer Schnickschnack für Bibliographie
 \renewcommand*{\jbauthorfont}{\textsc}
 \renewcommand*{\biblnfont}{\scshape\textbf}
 \renewcommand*{\bibfnfont}{\normalfont\textbf}
+
+%% % Abstand vor Kapitelüberschriften: 0 cm (um es Bündig zu setzen, negativen Skip verwenden)
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0cm}}
+%% % Abstand nach Kapitelüberschriften: 1 Zeile
+\renewcommand*{\chapterheadendvskip}{\vspace{1\baselineskip}}
 
 % Referenzen verlinken
 \usepackage{hyperref}
@@ -86,6 +102,9 @@
 \newcommand{\dH}{\mbox{d.\,h.}\xspace}
 \newcommand{\ua}{\mbox{u.\,a.}\xspace}
 \newcommand{\so}{\mbox{s.\,o.}\xspace}
+\newcommand{\MSc}{\mbox{M.\,Sc.}\xspace}
+\newcommand{\BSc}{\mbox{B.\,Sc.}\xspace}
+
 
 %% Schönere Tabellen
 \usepackage{booktabs}
@@ -104,20 +123,6 @@
 %% Gedrehte Tabellen
 \usepackage{rotating}
 
-%% Zeilenabstand 1.5. Nur setzen, wenn erforderlich, sieht ziemlich
-%% hässlich aus.
-% \usepackage{setspace} 
-%% 150%
-% \onehalfspacing % Zeilenabstand
-%% 125%
-%\linespread{1.25}
-%% 110%
-%\linespread{1.1}
-%% 105%
-%\linespread{1.05}
-%% 102,5%
-%\linespread{1.025}
-
 %% Trennung tweaken: Manche Wörter will man ggf. anders trennen als
 %% der Algorithmus das vorsieht oder ggf. auch garnicht
 \hyphenation{Java-Script}
@@ -125,35 +130,39 @@
 
 \begin{document}
 
-\begin{titlepage}
-
-\includegraphics[width=8cm]{img/fhk.jpg}
-
+\begin{titlepage} 
 \begin{center}
-\textbf{\LARGE Fachhochschule Köln\\
-Cologne University of Applied Sciences\\[0.5cm]
-Campus Gummersbach\\[0.5cm]
-Fakultät für Informatik und Ingenieurwissenschaften\\[1cm]}
- 
-\Large Verbundstudiengang Wirtschaftsinformatik\\[1cm]
+\textbf{\Large Fachhochschule Köln\\
+Cologne University of Applied Sciences\\[0.1cm]
+\normalsize Campus Gummersbach\\
+Fakultät für Informatik und Ingenieurwissenschaften\\[0.5cm]}
 
-\Large Template \\[1cm]
+\textbf{\Large Fachhochschule Dortmund\\
+University of Applied Sciences and Arts\\[0.1cm]
+\normalsize Fachbereich Informatik\\[0.5cm]}
+ 
+\Large Verbundstudiengang Wirtschaftsinformatik\\[0.5cm]
+
+\large Master Thesis\\[0.1cm]
+(Sechs-Monats-Arbeit) \\[0.1cm] zur Erlangung \\[0.1cm] des Mastergrades \\[0.1cm] \glqq Master of Science\grqq \\[0.1cm] in der Fachrichtung Informatik \\[1.5cm]
   
 % Title
-{ \huge \bfseries \LaTeX-Template für Thesen an der FH Köln}\\
+{ \huge \bfseries \LaTeX-Template für Thesen\\[0.1cm]
+        im Verbundstudium\\[0.5cm]
+        Wirtschaftsinformatik}\\
 
 \vfill
 
 \begin{table}[h]
 \centering
-\begin{tabular}{p{4cm}p{5cm}}
+\begin{tabular}{ll}
   Prüfer:         & Prof. Dr. Max Mustermann \\
   Zweitprüfer:    & Prof. Dr. Monika Mustermann \\
                   &  \\
   vorgelegt am:   & \today \\
-  von:            & Stephan Student \\
-  aus:	  	  & Gummersbach \\
-  Telefon-Nr.:	  & +49-123-456789 \\
+  von cand.:      & Stephan Student \\
+  aus:            & Gummersbach \\
+  Telefon-Nr.:    & +49-123-456789 \\
   Matrikel-Nr.:   & 123456789 \\
   E-Mail-Adresse: & student@fh-koeln.de
 \end{tabular}
@@ -163,10 +172,32 @@ Fakultät für Informatik und Ingenieurwissenschaften\\[1cm]}
 
 \tableofcontents
 
+\onehalfspacing % 1,5-facher Zeilenabstand
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Wir wollen einen Abstract noch nicht mit der Nummerierung startet, aber trotzdem im Inhaltsverzeichnis ist.
+
+\listoffigures
+
+\listoftables
+
+\lstlistoflistings
+
+\chapter*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\begin{acronym}[Thesis]
+\input{acronyms.tex}
+\end{acronym}
+
+
 \chapter{Einleitung}
 
 Dieses \LaTeX Template dient als Vorlage für Bachelor- und
-Masterthesen, Haus-, Seminar- und Diplomarbeiten an der \ac{FH} Köln.
+Masterthesen, Haus-, Seminar-, Projekt- und Diplomarbeiten im
+Verbundstudium Wirtschaftsinformatik an der \acp{FH} Köln und
+Dortmund.
 
 Zitate im Text so wie \cite[vgl.][S.~1]{Lamport} sind mittels
 \texttt{\textbackslash cite}, Zitate als Fußnote, zum
@@ -269,24 +300,6 @@ Tabelle~\ref{example_table}. Komplexere Beispiele finden sich \zB in
   \label{example_table}
 \end{table}
 
-Tabellen können mittels \texttt{sidewaystable} auch quer zur Seite
-gerendert werden:
-
-\begin{sidewaystable}
-  \centering
-  \begin{tabular}{llll}
-    \toprule
-    Head 1 & Head 2 & Head 3 & Head 4 \\
-    \midrule
-    Row 1-1 & Row 2-1 & Row 3-1 & Row 4-1 \\
-    Row 1-2 & Row 2-2 & Row 3-2 & Row 4-2 \\
-    Row 1-3 & Row 2-3 & Row 3-3 & Row 4-3 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Beispiel für eine Quertabelle}
-  \label{example_table2}
-\end{sidewaystable}
-
 \section{Referenzen}
 
 Bei Abbildungen gibt es (wie bei Tabellen, Listings usw.) die
@@ -307,20 +320,8 @@ dazu findet sich in \cite[][]{WikibookFloats}. Ein extremes Beispiel
 ist Abbildung~\ref{example_image} die fest an die Position hinter dem
 Doppelpunkt gezwungen wird.
 
-\chapter*{Abkürzungsverzeichnis}
-\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
-\begin{acronym}[Acronms]
-\input{acronyms.tex}
-\end{acronym}
-
 \bibliography{thesis}{}
 \bibliographystyle{jureco} %% jurabib, jureco, jurunsrt, jox
-
-\listoffigures
-
-\listoftables
-
-\lstlistoflistings
 
 %% \printindex
 
